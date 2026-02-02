@@ -1,5 +1,12 @@
+import Header from "../components/Header/Header";
+
 const CatalogPage = () => {
-  return <h2>Каталог</h2>;
+  return (
+    <>
+      <Header />
+      <h2>Каталог</h2>
+    </>
+  );
 };
 
 export default CatalogPage;

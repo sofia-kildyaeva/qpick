@@ -1,5 +1,12 @@
+import Header from "../components/Header/Header";
+
 const CartPage = () => {
-  return <h2>Корзина</h2>;
+  return (
+    <>
+      <Header />
+      <h2>Корзина</h2>
+    </>
+  );
 };
 
 export default CartPage;
