@@ -1,0 +1,29 @@
+.product-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+.product-card img {
+  width: 100%;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  border: none;
+  background: #000;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
