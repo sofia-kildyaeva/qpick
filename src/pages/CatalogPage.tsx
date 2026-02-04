@@ -13,14 +13,16 @@ const CatalogPage = ({ cartCount, addToCart }: Props) => {
     <>
       <Header cartCount={cartCount} />
 
-      <div className="catalog">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            addToCart={addToCart}
-          />
-        ))}
+      <div className="container">
+        <div className="catalog">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={addToCart}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

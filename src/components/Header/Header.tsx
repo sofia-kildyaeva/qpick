@@ -8,12 +8,14 @@ interface Props {
 const Header = ({ cartCount }: Props) => {
   return (
     <header className="header">
-      <Link to="/" className="logo">QPICK</Link>
+      <div className="container header-inner">
+        <Link to="/" className="logo">QPICK</Link>
 
-      <Link to="/cart" className="cart">
-        <img src="../../../public/images/Vector.svg" alt="" />
-        <span>{cartCount}</span>
-      </Link>
+        <Link to="/cart" className="cart">
+          <img src="../../../public/images/Vector.svg" alt="" />
+          <span>{cartCount}</span>
+        </Link>
+      </div>
     </header>
   );
 };
