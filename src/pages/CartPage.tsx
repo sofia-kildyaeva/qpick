@@ -1,10 +1,14 @@
-import { useState } from "react";
 import Header from "../components/Header/Header";
 import CartItem from "../components/CartItem/CartItem";
 import { getCart, setCart } from "../utils/cartStorage";
+import { useState } from "react";
 import type { CartItem as Item } from "../types/cartItem";
 
-const CartPage = () => {
+interface Props {
+  cartCount: number;
+}
+
+const CartPage = ({ cartCount }: Props) => {
   const [items, setItems] = useState<Item[]>(getCart());
 
   const increase = (id: number) => {
@@ -28,14 +32,15 @@ const CartPage = () => {
     setCart(updated);
   };
 
-  const totalPrice = items.reduce(
+  const total = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
   return (
     <>
-      <Header />
+      <Header cartCount={cartCount} />
+
       <div className="cart">
         {items.map((item) => (
           <CartItem
@@ -46,7 +51,7 @@ const CartPage = () => {
           />
         ))}
 
-        <h2>Итого: {totalPrice} ₽</h2>
+        <h2>Итого: {total} ₽</h2>
       </div>
     </>
   );

@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
-import { getCart } from "../../utils/cartStorage";
 import "./Header.css";
 
-const Header = () => {
-  const count = getCart().length;
+interface Props {
+  cartCount: number;
+}
 
+const Header = ({ cartCount }: Props) => {
   return (
     <header className="header">
       <Link to="/" className="logo">QPICK</Link>
 
       <Link to="/cart" className="cart">
-        🛒 <span>{count}</span>
+        <img src="../../../public/images/Vector.svg" alt="" />
+        <span>{cartCount}</span>
       </Link>
     </header>
   );

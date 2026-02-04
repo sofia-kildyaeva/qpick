@@ -1,14 +1,25 @@
 import Header from "../components/Header/Header";
 import ProductCard from "../components/ProductCard/ProductCard";
 import { products } from "../data/products";
+import type { Product } from "../types/product";
 
-const CatalogPage = () => {
+interface Props {
+  cartCount: number;
+  addToCart: (product: Product) => void;
+}
+
+const CatalogPage = ({ cartCount, addToCart }: Props) => {
   return (
     <>
-      <Header />
+      <Header cartCount={cartCount} />
+
       <div className="catalog">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+          />
         ))}
       </div>
     </>

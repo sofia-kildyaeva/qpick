@@ -3,19 +3,10 @@ import "./ProductCard.css";
 
 interface Props {
   product: Product;
+  addToCart: (product: Product) => void;
 }
 
-const ProductCard = ({ product }: Props) => {
-  const handleBuy = () => {
-    const data = sessionStorage.getItem("cart");
-    const cart: Product[] = data ? JSON.parse(data) : [];
-
-    cart.push(product);
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-
-    window.location.reload();
-  };
-
+const ProductCard = ({ product, addToCart }: Props) => {
   return (
     <div className="product-card">
       <img src={product.image} alt={product.title} />
@@ -26,7 +17,9 @@ const ProductCard = ({ product }: Props) => {
 
         <div className="bottom">
           <span className="price">{product.price} ₽</span>
-          <button onClick={handleBuy}>Купить</button>
+          <button onClick={() => addToCart(product)}>
+            Купить
+          </button>
         </div>
       </div>
     </div>
