@@ -1,5 +1,4 @@
 import type { Product } from "../../types/product";
-import { getCart, setCart } from "../../utils/cartStorage";
 import "./ProductCard.css";
 
 interface Props {
@@ -8,8 +7,12 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   const handleBuy = () => {
-    const cart = getCart();
-    setCart([...cart, product]);
+    const data = sessionStorage.getItem("cart");
+    const cart: Product[] = data ? JSON.parse(data) : [];
+
+    cart.push(product);
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+
     window.location.reload();
   };
 
